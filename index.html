@@ -772,8 +772,6 @@
         id="heroVideo"
         class="hero-video"
         playsinline
-        autoplay
-        muted
         preload="auto"
       >
         <source src="hero-video.mp4" type="video/mp4">
@@ -1031,11 +1029,21 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Hero video: autoplay muted, click sound button to enable audio
+    // Hero video: try autoplay with sound, fall back to muted
     const video = document.getElementById('heroVideo');
     const soundBtn = document.getElementById('soundToggle');
-    let isMuted = true;
-    soundBtn.textContent = '🔇';
+    let isMuted = false;
+
+    video.muted = false;
+    video.play().then(() => {
+      isMuted = false;
+      soundBtn.textContent = '🔊';
+    }).catch(() => {
+      video.muted = true;
+      isMuted = true;
+      soundBtn.textContent = '🔇';
+      video.play();
+    });
 
     video.addEventListener('playing', () => {
       video.classList.add('visible');
