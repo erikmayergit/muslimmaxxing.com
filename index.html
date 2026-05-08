@@ -730,6 +730,42 @@
 
       .hero {
         padding: 7rem 1.5rem 4rem;
+        min-height: 100svh;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1rem;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+
+      .sound-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .phase {
+        padding: 2rem 1.5rem;
+      }
+
+      .product-card {
+        padding: 2rem 1.5rem;
       }
 
       section {
@@ -1051,11 +1087,28 @@
     });
 
     // Sound toggle
+    let userUnmuted = false;
     soundBtn.addEventListener('click', () => {
       isMuted = !isMuted;
+      userUnmuted = !isMuted;
       video.muted = isMuted;
       soundBtn.textContent = isMuted ? '🔇' : '🔊';
     });
+
+    // Auto-mute when hero scrolls out of view, restore when back
+    const heroSection = document.querySelector('.hero');
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && !video.muted) {
+          video.muted = true;
+          soundBtn.textContent = '🔇';
+        } else if (entry.isIntersecting && userUnmuted) {
+          video.muted = false;
+          soundBtn.textContent = '🔊';
+        }
+      });
+    }, { threshold: 0.2 });
+    heroObserver.observe(heroSection);
   </script>
 
 </body>
