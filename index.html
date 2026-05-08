@@ -202,44 +202,6 @@
       border-color: var(--gray-500);
     }
 
-    .tap-for-sound {
-      position: fixed;
-      inset: 0;
-      z-index: 150;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .tap-for-sound-pill {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--gray-700);
-      color: var(--white);
-      padding: 0.75rem 1.8rem;
-      font-family: inherit;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      animation: tapPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes tapPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-
-    .tap-for-sound.hidden {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
     .hero-badge {
       display: inline-block;
       padding: 0.5rem 1.5rem;
@@ -810,6 +772,8 @@
         id="heroVideo"
         class="hero-video"
         playsinline
+        autoplay
+        muted
         preload="auto"
       >
         <source src="hero-video.mp4" type="video/mp4">
@@ -837,11 +801,6 @@
       <div class="line"></div>
     </div>
   </section>
-
-  <!-- Tap for sound overlay -->
-  <div class="tap-for-sound" id="tapForSound">
-    <div class="tap-for-sound-pill">🔇 Tap for sound</div>
-  </div>
 
   <!-- Sound toggle button -->
   <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
@@ -1072,38 +1031,13 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Hero video: autoplay muted, tap anywhere to enable sound
+    // Hero video: autoplay muted, button to unmute
     const video = document.getElementById('heroVideo');
     const soundBtn = document.getElementById('soundToggle');
-    const tapOverlay = document.getElementById('tapForSound');
     let isMuted = true;
-
-    video.muted = true;
-    video.play().then(() => {
-      video.classList.add('visible');
-    });
-
-    // Try autoplay with sound — if it works, hide the overlay immediately
-    video.play().then(() => {
-      video.muted = false;
-      isMuted = false;
-      soundBtn.textContent = '🔊';
-      tapOverlay.classList.add('hidden');
-    }).catch(() => {
-      video.muted = true;
-      video.play();
-    });
 
     video.addEventListener('playing', () => {
       video.classList.add('visible');
-    });
-
-    // Click anywhere to unmute
-    tapOverlay.addEventListener('click', () => {
-      video.muted = false;
-      isMuted = false;
-      soundBtn.textContent = '🔊';
-      tapOverlay.classList.add('hidden');
     });
 
     // Fade-out before end, seamless loop restart
