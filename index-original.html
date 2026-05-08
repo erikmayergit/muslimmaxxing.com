@@ -130,76 +130,18 @@
       text-align: center;
       padding: 8rem 2rem 4rem;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-video-wrap {
+    .hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .hero-video {
-      position: absolute;
-      top: 50%;
+      top: 0;
       left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .hero-video.visible {
-      opacity: 1;
-    }
-
-    .hero-video-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0.4) 30%,
-        rgba(0, 0, 0, 0.3) 50%,
-        rgba(0, 0, 0, 0.4) 70%,
-        rgba(0, 0, 0, 0.85) 100%
-      );
-      z-index: 1;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
       pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .sound-toggle {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 200;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--gray-700);
-      color: var(--white);
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .sound-toggle:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: var(--gray-500);
     }
 
     .hero-badge {
@@ -767,45 +709,25 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-video-wrap">
-      <video
-        id="heroVideo"
-        class="hero-video"
-        playsinline
-        autoplay
-        muted
-        preload="auto"
-      >
-        <source src="hero-video.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge">The Islamic Self-Improvement System</div>
-      <h1>
-        Stop Wishing.<br>
-        Start <span class="outline">Maxxing.</span>
-      </h1>
-      <p class="hero-sub">
-        Every soul will taste death. The question is what you built before it comes.
-        A 3-phase system to prepare for death, perfect your pillars, and compete
-        for the highest levels of Jannah.
-      </p>
-      <div class="hero-cta-group">
-        <a href="https://www.skool.com/muslim-maxxing-8178" class="btn-primary" target="_blank" rel="noopener">Join the Free Community</a>
-        <a href="#system" class="btn-secondary">See the System</a>
-      </div>
+    <div class="hero-badge">The Islamic Self-Improvement System</div>
+    <h1>
+      Stop Wishing.<br>
+      Start <span class="outline">Maxxing.</span>
+    </h1>
+    <p class="hero-sub">
+      Every soul will taste death. The question is what you built before it comes.
+      A 3-phase system to prepare for death, perfect your pillars, and compete
+      for the highest levels of Jannah.
+    </p>
+    <div class="hero-cta-group">
+      <a href="https://www.skool.com/muslim-maxxing-8178" class="btn-primary" target="_blank" rel="noopener">Join the Free Community</a>
+      <a href="#system" class="btn-secondary">See the System</a>
     </div>
     <div class="hero-scroll">
       Scroll
       <div class="line"></div>
     </div>
   </section>
-
-  <!-- Sound toggle button -->
-  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
-    🔇
-  </button>
 
   <!-- PROBLEM -->
   <section class="problem">
@@ -1014,6 +936,7 @@
       navLinks.classList.toggle('active');
     });
 
+    // Close mobile nav on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -1030,46 +953,6 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Hero video: autoplay muted, click sound button to enable audio
-    const video = document.getElementById('heroVideo');
-    const soundBtn = document.getElementById('soundToggle');
-    let isMuted = true;
-    soundBtn.textContent = '🔇';
-
-    video.addEventListener('playing', () => {
-      video.classList.add('visible');
-    });
-
-    // Fade-out before end, seamless loop restart
-    function monitorFade() {
-      if (video.duration && video.currentTime > 0) {
-        const timeLeft = video.duration - video.currentTime;
-        if (timeLeft <= 0.5) {
-          video.style.opacity = Math.max(0, timeLeft / 0.5);
-        }
-      }
-      requestAnimationFrame(monitorFade);
-    }
-    requestAnimationFrame(monitorFade);
-
-    video.addEventListener('ended', () => {
-      video.classList.remove('visible');
-      video.style.opacity = '';
-      setTimeout(() => {
-        video.currentTime = 0;
-        video.play().then(() => {
-          video.classList.add('visible');
-        });
-      }, 100);
-    });
-
-    // Sound toggle
-    soundBtn.addEventListener('click', () => {
-      isMuted = !isMuted;
-      video.muted = isMuted;
-      soundBtn.textContent = isMuted ? '🔇' : '🔊';
-    });
   </script>
 
 </body>
