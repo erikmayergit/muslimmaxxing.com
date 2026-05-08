@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslim Maxxing — Become The Best Muslim Version of Yourself</title>
+  <meta name="description" content="The systemized Islamic self-improvement framework. Death Prep. Pillar Maxxing. Dunya Maxxing. Join the free community.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-800: #262626;
+      --gray-900: #171717;
+      --gray-950: #0a0a0a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-900);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--white) !important;
+      color: var(--black) !important;
+      padding: 0.6rem 1.4rem;
+      font-weight: 700 !important;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .hero-video.visible {
+      opacity: 1;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.4) 30%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.4) 70%,
+        rgba(0, 0, 0, 0.85) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .sound-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--gray-700);
+      color: var(--white);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .sound-toggle:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--gray-500);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--gray-800);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+
+    .hero h1 .outline {
+      -webkit-text-stroke: 1.5px var(--white);
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--gray-400);
+      max-width: 520px;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      padding: 1rem 2.5rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gray-700);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-600);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+
+    .hero-scroll .line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gray-600), transparent);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 7rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--gray-400);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* PROBLEM */
+    .problem {
+      border-top: 1px solid var(--gray-900);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3.5rem;
+      align-items: start;
+    }
+
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .problem-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--gray-300);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .problem-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gray-600);
+    }
+
+    .problem-right {
+      border-left: 1px solid var(--gray-800);
+      padding-left: 3rem;
+    }
+
+    .problem-right blockquote {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-right p {
+      color: var(--gray-400);
+      line-height: 1.7;
+    }
+
+    /* SYSTEM / 3 PHASES */
+    .system {
+      border-top: 1px solid var(--gray-900);
+    }
+
+    .system-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .system-header .section-desc {
+      margin: 0 auto;
+    }
+
+    .phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .phase {
+      border: 1px solid var(--gray-900);
+      padding: 3rem 2.5rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .phase:hover {
+      background: var(--gray-950);
+    }
+
+    .phase-number {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .phase-desc {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .phase-items li {
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .phase-items li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gray-600);
+      font-weight: 700;
+    }
+
+    /* ARROW CONNECTORS */
+    .phase-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: none;
+    }
+
+    /* PRODUCTS */
+    .products {
+      border-top: 1px solid var(--gray-900);
+    }
+
+    .product-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .product-card {
+      border: 1px solid var(--gray-800);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .product-card:hover {
+      border-color: var(--gray-600);
+    }
+
+    .product-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      border: 1px solid var(--gray-800);
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card p {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-link {
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s;
+    }
+
+    .product-link:hover {
+      gap: 0.8rem;
+    }
+
+    /* SOCIAL PROOF / NUMBERS */
+    .proof {
+      border-top: 1px solid var(--gray-900);
+      text-align: center;
+    }
+
+    .proof-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .proof-stat {
+      padding: 2.5rem 1.5rem;
+      border: 1px solid var(--gray-900);
+    }
+
+    .proof-stat .number {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .proof-stat .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+
+    /* CTA */
+    .cta {
+      border-top: 1px solid var(--gray-900);
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .cta .section-title {
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .cta .section-desc {
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    /* FAQ */
+    .faq {
+      border-top: 1px solid var(--gray-900);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      border: 1px solid var(--gray-800);
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gray-600);
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-item p {
+      color: var(--gray-400);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--gray-900);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-right {
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      font-style: italic;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .phases {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .problem-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--gray-800);
+        padding-top: 2rem;
+      }
+
+      .product-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--gray-900);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Muslim Maxxing</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#system">The System</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="https://www.skool.com/muslim-maxxing-8178" class="nav-cta" target="_blank" rel="noopener">Join Free</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-video-wrap">
+      <video
+        id="heroVideo"
+        class="hero-video"
+        playsinline
+        autoplay
+        muted
+        preload="auto"
+      >
+        <source src="hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">The Islamic Self-Improvement System</div>
+      <h1>
+        Stop Wishing.<br>
+        Start <span class="outline">Maxxing.</span>
+      </h1>
+      <p class="hero-sub">
+        Every soul will taste death. The question is what you built before it comes.
+        A 3-phase system to prepare for death, perfect your pillars, and compete
+        for the highest levels of Jannah.
+      </p>
+      <div class="hero-cta-group">
+        <a href="https://www.skool.com/muslim-maxxing-8178" class="btn-primary" target="_blank" rel="noopener">Join the Free Community</a>
+        <a href="#system" class="btn-secondary">See the System</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      Scroll
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- Sound toggle button -->
+  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
+    🔇
+  </button>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-label fade-in">The Problem</div>
+      <div class="section-title fade-in">You know the stakes.<br>You just don't have a system.</div>
+      <div class="problem-grid">
+        <ul class="problem-list fade-in">
+          <li>You know death is not scheduled — and you are not prepared for it</li>
+          <li>The Ramadan highs collapse within weeks. The guilt cycle repeats every year</li>
+          <li>You pray, but you have never gone deep on the fiqh, the meaning, or the consistency</li>
+          <li>You chase dunya goals with no framework to align them with your akhirah</li>
+          <li>You mean well — but meaning well is not a system</li>
+        </ul>
+        <div class="problem-right fade-in">
+          <blockquote>"The grave is either a garden or a pit. Which one depends on what you build here."</blockquote>
+          <p>
+            Islamic reminders are everywhere. Motivation is everywhere.
+            Muslim Maxxing is different because it is a system, not a reminder.
+            A reminder tells you what to care about. A system shows you how to
+            act on it — consistently, correctly, and with full understanding of the stakes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM -->
+  <section class="system" id="system">
+    <div class="container">
+      <div class="system-header">
+        <div class="section-label fade-in">The 3-Phase System</div>
+        <div class="section-title fade-in">Death Prep. Pillar Maxxing.<br>Dunya Maxxing.</div>
+        <p class="section-desc fade-in">
+          Every phase builds on the last. You don't skip ahead.
+          You earn the next level.
+        </p>
+      </div>
+      <div class="phases fade-in">
+        <div class="phase">
+          <div class="phase-number">Phase 01</div>
+          <div class="phase-title">Death Prep</div>
+          <p class="phase-desc">
+            Before anything else, you face what you have been avoiding.
+            Debts, broken obligations, unresolved rights. If the Angel of Death
+            came right now — what would you leave behind?
+          </p>
+          <ul class="phase-items">
+            <li>Settle debts and unresolved obligations</li>
+            <li>Tawbah protocol</li>
+            <li>Mortality awareness and urgency</li>
+            <li>Niyyah alignment</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="phase-number">Phase 02</div>
+          <div class="phase-title">Pillar Maxxing</div>
+          <p class="phase-desc">
+            The five pillars are not checkboxes. They are the architecture of
+            your entire existence. Go deep on every single one.
+          </p>
+          <ul class="phase-items">
+            <li>Shahada Maxxing</li>
+            <li>Salat Maxxing</li>
+            <li>Zakat Maxxing</li>
+            <li>Sawm Maxxing</li>
+            <li>Hajj Maxxing</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="phase-number">Phase 03</div>
+          <div class="phase-title">Dunya Maxxing</div>
+          <p class="phase-desc">
+            Once your foundation is solid, everything else becomes an
+            extension of your ibadah. Build in the dunya — compete for
+            the highest levels of Jannah.
+          </p>
+          <ul class="phase-items">
+            <li>Arabic &amp; Tajweed</li>
+            <li>Income Maxxing</li>
+            <li>Health &amp; fitness</li>
+            <li>Marriage readiness</li>
+            <li>Da'wah &amp; leadership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-label fade-in">Tools</div>
+      <div class="section-title fade-in">Built to keep you locked in.</div>
+      <p class="section-desc fade-in">
+        The system comes with tools. Not motivation posters — actual tracking
+        and accountability infrastructure.
+      </p>
+      <div class="product-cards">
+        <div class="product-card fade-in">
+          <div class="product-tag">Tracker</div>
+          <h3>The Muslim Maxxing Habit Tracker</h3>
+          <p>
+            A daily system tracker built for the 3-phase framework. Track salah,
+            Quran, fitness, income goals, and more — turn intention into
+            consistency.
+          </p>
+          <a href="https://muslimmaxxingtracker.com/" class="product-link" target="_blank" rel="noopener">Get the Tracker &#8594;</a>
+        </div>
+        <div class="product-card fade-in">
+          <div class="product-tag">Free Classes</div>
+          <h3>Tajweed, Fiqh, Arabic &amp; More</h3>
+          <p>
+            Free structured classes inside the community. Learn to recite the
+            Quran correctly, understand the fiqh of your daily worship, and
+            build your Arabic — with more subjects being added.
+          </p>
+          <a href="https://www.skool.com/muslim-maxxing-8178" class="product-link" target="_blank" rel="noopener">Join to Access &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof" id="community">
+    <div class="container">
+      <div class="section-label fade-in">Community</div>
+      <div class="section-title fade-in">Join the community.</div>
+      <p class="section-desc fade-in" style="margin: 0 auto;">
+        A free Skool community of Muslims who have decided to stop sleepwalking
+        and start competing for the highest levels of Jannah.
+      </p>
+      <div class="proof-stats fade-in">
+        <div class="proof-stat">
+          <div class="number">120+</div>
+          <div class="label">Members</div>
+        </div>
+        <div class="proof-stat">
+          <div class="number">16</div>
+          <div class="label">Week Roadmap</div>
+        </div>
+        <div class="proof-stat">
+          <div class="number">Free</div>
+          <div class="label">Always</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-label fade-in">Questions</div>
+      <div class="section-title fade-in">Nothing to lose.<br>Everything to gain.</div>
+      <div class="faq-grid fade-in">
+        <div class="faq-item">
+          <h3>Is it really free? What's the catch?</h3>
+          <p>Yes, completely free. No hidden costs. Every Muslim I help is sadaqah jariyah for me. Alhamdulillah, we both win.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long will it take to get results?</h3>
+          <p>If you follow the 16-week roadmap, you can expect to feel a deep sense of relief and clarity within 24 hours. From there, we systematically maxx out every pillar.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need past experience or results?</h3>
+          <p>Not at all. Whether you're a revert, someone returning to their deen, or a lifelong Muslim wanting to go deeper — this is built for you.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What do I get when I join?</h3>
+          <p>Instant access to Death Prep Protocol &amp; Pillar Maxxing courses, the Deen Optimization Toolkit, weekly Q&amp;A calls, and a community on the same path.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="section-label fade-in">"So for this let the competitors compete." — Quran 83:26</div>
+      <div class="section-title fade-in">Your deen deserves a system.<br>Not just good intentions.</div>
+      <p class="section-desc fade-in">
+        Join the free Muslim Maxxing community on Skool. Get the framework,
+        the courses, and the accountability. Start now.
+      </p>
+      <a href="https://www.skool.com/muslim-maxxing-8178" class="btn-primary fade-in" target="_blank" rel="noopener">Join Free on Skool</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        &copy; 2026 Muslim Maxxing. All rights reserved.
+      </div>
+      <div class="footer-right">
+        Bismillah.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Hero video: autoplay muted, click sound button to enable audio
+    const video = document.getElementById('heroVideo');
+    const soundBtn = document.getElementById('soundToggle');
+    let isMuted = true;
+    soundBtn.textContent = '🔇';
+
+    video.addEventListener('playing', () => {
+      video.classList.add('visible');
+    });
+
+    // Fade-out before end, seamless loop restart
+    function monitorFade() {
+      if (video.duration && video.currentTime > 0) {
+        const timeLeft = video.duration - video.currentTime;
+        if (timeLeft <= 0.5) {
+          video.style.opacity = Math.max(0, timeLeft / 0.5);
+        }
+      }
+      requestAnimationFrame(monitorFade);
+    }
+    requestAnimationFrame(monitorFade);
+
+    video.addEventListener('ended', () => {
+      video.classList.remove('visible');
+      video.style.opacity = '';
+      setTimeout(() => {
+        video.currentTime = 0;
+        video.play().then(() => {
+          video.classList.add('visible');
+        });
+      }, 100);
+    });
+
+    // Sound toggle
+    soundBtn.addEventListener('click', () => {
+      isMuted = !isMuted;
+      video.muted = isMuted;
+      soundBtn.textContent = isMuted ? '🔇' : '🔊';
+    });
+  </script>
+
+</body>
+</html>
