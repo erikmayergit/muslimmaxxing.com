@@ -176,6 +176,11 @@
     .hero-content {
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
     }
 
     .sound-toggle {
@@ -230,10 +235,11 @@
 
     .hero-sub {
       font-size: 1.15rem;
-      color: var(--gray-400);
+      color: var(--gray-300);
       max-width: 520px;
       margin-bottom: 3rem;
       line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
     }
 
     .hero-cta-group {
