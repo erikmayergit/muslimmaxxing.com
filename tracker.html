@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslim Maxxing System — Habit &amp; Task Tracker for Google Sheets &amp; Excel</title>
+  <meta name="description" content="Muslim habit tracker and task planner for Google Sheets and Excel. Track daily habits, weekly tasks, and goals with automatic streaks, scores, and dashboards. Instant download. Lifetime access.">
+  <meta property="og:title" content="Muslim Maxxing System (Updated March 2026)">
+  <meta property="og:description" content="Muslim habit tracker and task planner for Google Sheets and Excel. Track daily habits, weekly tasks, and goals with automatic streaks, scores, and dashboards. Instant download. Lifetime access.">
+  <meta property="og:image" content="tracker-assets/1.png">
+  <link rel="icon" href="tracker-assets/logo.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-800: #262626;
+      --gray-900: #171717;
+      --gray-950: #0a0a0a;
+      --blue: #2E7AE2;
+      --blue-hover: #1f63c0;
+      --gold: #f5b301;
+      --green: #22c55e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5rem 0; }
+    img { max-width: 100%; display: block; }
+
+    /* PROMO BANNER */
+    .promo-banner {
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.6rem 1rem;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1.1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-900);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--white); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+    .nav-links a {
+      color: var(--gray-400); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--white) !important; color: var(--black) !important;
+      padding: 0.6rem 1.4rem; font-weight: 700 !important; font-size: 0.8rem !important;
+      letter-spacing: 0.08em; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
+
+    /* PRODUCT HERO */
+    .product { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .product-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: start; }
+
+    .gallery-main {
+      border: 1px solid var(--gray-800); border-radius: 14px; overflow: hidden;
+      background: var(--gray-950);
+    }
+    .gallery-main img { width: 100%; height: auto; }
+    .gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-top: 0.9rem; }
+    .gallery-thumbs button {
+      border: 1px solid var(--gray-800); border-radius: 9px; overflow: hidden;
+      background: var(--gray-950); cursor: pointer; padding: 0; transition: border-color 0.2s; aspect-ratio: 16/9;
+    }
+    .gallery-thumbs button img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-thumbs button.active { border-color: var(--blue); }
+
+    .buy-box { position: sticky; top: 90px; }
+    .reviews-inline { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
+    .stars { color: var(--gold); letter-spacing: 2px; font-size: 1rem; }
+    .reviews-count { color: var(--gray-400); font-size: 0.85rem; font-weight: 500; }
+
+    .product-title {
+      font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: 1.3rem;
+    }
+
+    .value-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+    .value-bullets li { font-size: 0.98rem; color: var(--gray-200); padding-left: 0.25rem; }
+
+    .variant-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gray-500); font-weight: 700; margin-bottom: 0.7rem; }
+    .variants { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.6rem; }
+    .variant {
+      position: relative; border: 1.5px solid var(--gray-700); background: var(--gray-950);
+      color: var(--gray-200); border-radius: 10px; padding: 0.75rem 1.1rem; cursor: pointer;
+      font-size: 0.9rem; font-weight: 600; font-family: inherit; transition: all 0.18s;
+    }
+    .variant:hover { border-color: var(--gray-500); }
+    .variant.active { border-color: var(--blue); background: rgba(46,122,226,0.12); color: var(--white); }
+    .variant .tag {
+      position: absolute; top: -10px; right: -8px; background: var(--blue); color: #fff;
+      font-size: 0.58rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.15rem 0.45rem; border-radius: 6px;
+    }
+
+    .price-row { display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+    .price-now { font-size: 2.4rem; font-weight: 900; letter-spacing: -0.02em; }
+    .price-was { font-size: 1.2rem; color: var(--gray-500); text-decoration: line-through; }
+    .save-badge {
+      background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.4);
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.25rem 0.55rem; border-radius: 6px;
+    }
+
+    .btn-buy {
+      display: block; width: 100%; background: var(--blue); color: #fff; border: none;
+      font-family: inherit; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.04em;
+      padding: 1.1rem; border-radius: 12px; cursor: pointer; text-align: center; text-decoration: none;
+      transition: background 0.2s, transform 0.05s;
+    }
+    .btn-buy:hover { background: var(--blue-hover); }
+    .btn-buy:active { transform: translateY(1px); }
+    .buy-sub { text-align: center; color: var(--gray-500); font-size: 0.8rem; margin-top: 0.7rem; }
+
+    .trust { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px solid var(--gray-900); }
+    .trust span { font-size: 0.82rem; color: var(--gray-300); font-weight: 500; }
+
+    /* SECTION HEADINGS */
+    .section-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--blue); font-weight: 700; margin-bottom: 1rem; text-align: center; }
+    .section-title { font-size: clamp(1.7rem, 3.6vw, 2.7rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.12; text-align: center; max-width: 760px; margin: 0 auto 1rem; }
+    .section-sub { text-align: center; color: var(--gray-400); max-width: 620px; margin: 0 auto 3rem; font-size: 1.02rem; }
+
+    /* VALUE CARDS */
+    .value-section { background: var(--gray-950); border-top: 1px solid var(--gray-900); border-bottom: 1px solid var(--gray-900); }
+    .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .value-card { background: var(--black); border: 1px solid var(--gray-800); border-radius: 14px; padding: 1.8rem; }
+    .value-card .ico { font-size: 1.6rem; margin-bottom: 0.8rem; }
+    .value-card h3 { font-size: 1.08rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .value-card p { color: var(--gray-400); font-size: 0.92rem; }
+    .value-card .hadith { color: var(--gray-500); font-style: italic; font-size: 0.85rem; margin-top: 0.6rem; display: block; }
+
+    /* TESTIMONIALS */
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .testi-card { background: var(--gray-950); border: 1px solid var(--gray-800); border-radius: 14px; padding: 1.8rem; }
+    .testi-card .stars { font-size: 0.95rem; margin-bottom: 0.9rem; }
+    .testi-card p { color: var(--gray-200); font-size: 0.95rem; margin-bottom: 1rem; }
+    .testi-card .name { color: var(--gray-400); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* FEATURE BADGES */
+    .badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .badge-card { text-align: center; padding: 2rem 1.4rem; border: 1px solid var(--gray-800); border-radius: 14px; background: var(--gray-950); }
+    .badge-card .ico { font-size: 2rem; margin-bottom: 0.8rem; }
+    .badge-card h3 { font-size: 1rem; font-weight: 700; }
+
+    /* SPLIT VISUAL */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .split img { border: 1px solid var(--gray-800); border-radius: 14px; }
+    .split h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.2rem; }
+    .split p { color: var(--gray-400); margin-bottom: 1rem; }
+    .split .hadith { color: var(--gray-300); font-style: italic; border-left: 3px solid var(--blue); padding-left: 1rem; }
+
+    /* DEVELOPED CARDS */
+    .dev-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .dev-card { padding: 1.7rem; border: 1px solid var(--gray-800); border-radius: 14px; background: var(--gray-950); }
+    .dev-card .ico { font-size: 1.5rem; margin-bottom: 0.7rem; }
+    .dev-card h3 { font-size: 0.98rem; font-weight: 800; margin-bottom: 0.45rem; }
+    .dev-card p { color: var(--gray-400); font-size: 0.88rem; }
+
+    /* PROMISE */
+    .promise-section { background: var(--gray-950); border-top: 1px solid var(--gray-900); border-bottom: 1px solid var(--gray-900); }
+    .promise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+    .promise-item { text-align: center; }
+    .promise-item .num { font-size: 2.6rem; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 0.6rem; }
+    .promise-item p { color: var(--gray-300); font-size: 0.95rem; }
+    .promise-line { text-align: center; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; }
+
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--gray-800); }
+    .faq-q { width: 100%; background: none; border: none; color: var(--white); font-family: inherit;
+      font-size: 1.02rem; font-weight: 700; text-align: left; padding: 1.4rem 2.5rem 1.4rem 0;
+      cursor: pointer; position: relative; }
+    .faq-q::after { content: '+'; position: absolute; right: 0.3rem; top: 50%; transform: translateY(-50%);
+      font-size: 1.5rem; font-weight: 400; color: var(--blue); transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { content: '\2212'; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-a p { color: var(--gray-400); font-size: 0.95rem; padding-bottom: 1.4rem; }
+    .faq-a strong { color: var(--gray-200); }
+
+    /* FINAL CTA */
+    .final-cta { text-align: center; background: linear-gradient(180deg, var(--gray-950), var(--black)); }
+    .final-cta .btn-buy { max-width: 360px; margin: 2rem auto 0; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--gray-900); padding: 2.5rem 0; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; display: flex;
+      justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-left { color: var(--gray-500); font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--gray-500); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-right { color: var(--gray-500); font-size: 0.85rem; }
+
+    /* FADE IN */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* VIDEOS */
+    .video-feature { max-width: 330px; margin: 0 auto; }
+    .video-feature video { width: 100%; border-radius: 16px; border: 1px solid var(--gray-800); background: #000; display: block; }
+    .video-feature .vf-cap { text-align: center; color: var(--gray-500); font-size: 0.8rem; margin-top: 0.7rem; }
+    .video-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; max-width: 820px; margin: 0 auto 2.8rem; }
+    .video-card { border: 1px solid var(--gray-800); border-radius: 14px; overflow: hidden; background: #000; }
+    .video-card video { width: 100%; display: block; aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
+
+    /* STICKY BUY BAR */
+    .sticky-buy {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(10,10,10,0.97); backdrop-filter: blur(14px);
+      border-top: 1px solid var(--gray-800); padding: 0.7rem 1.3rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      transform: translateY(120%); transition: transform 0.35s ease;
+    }
+    .sticky-buy.show { transform: translateY(0); }
+    .sticky-buy .sb-info { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+    .sticky-buy .sb-name { font-size: 0.78rem; color: var(--gray-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sticky-buy .sb-price { font-size: 1.25rem; font-weight: 900; }
+    .sticky-buy .sb-price s { color: var(--gray-600); font-size: 0.85rem; font-weight: 600; margin-left: 0.4rem; }
+    .sticky-buy .btn-buy { width: auto; padding: 0.85rem 2rem; font-size: 0.98rem; white-space: nowrap; }
+
+    @media (max-width: 760px) {
+      .video-row { grid-template-columns: 1fr; max-width: 330px; }
+      .sticky-buy .btn-buy { padding: 0.85rem 1.4rem; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .buy-box { position: static; }
+      .value-grid, .dev-grid, .split { grid-template-columns: 1fr; gap: 1.5rem; }
+      .testi-grid, .badges, .promise-grid { grid-template-columns: 1fr; }
+      .split-img-wrap { order: -1; }
+      nav { padding: 1rem 1.2rem; }
+      .nav-links {
+        position: fixed; top: 0; right: 0; height: 100vh; width: 75%; max-width: 320px;
+        flex-direction: column; align-items: flex-start; justify-content: center; padding: 2rem;
+        background: rgba(0,0,0,0.97); backdrop-filter: blur(20px); transform: translateX(100%);
+        transition: transform 0.3s; gap: 1.6rem;
+      }
+      .nav-links.active { transform: translateX(0); }
+      .mobile-toggle { display: block; z-index: 101; }
+    }
+    @media (max-width: 560px) {
+      section { padding: 3.5rem 0; }
+      .price-now { font-size: 2rem; }
+      .gallery-thumbs { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner">⚡ Limited-Time Offer — Up to 75% Off · Ends Soon</div>
+
+  <!-- NAV (matches muslimmaxxing.com) -->
+  <nav>
+    <a href="index.html" class="nav-logo">Muslim Maxxing</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#system">The System</a></li>
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#community">Community</a></li>
+      <li><a href="https://www.skool.com/muslim-maxxing-8178" class="nav-cta" target="_blank" rel="noopener">Join Free</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PRODUCT HERO -->
+  <section class="product">
+    <div class="container">
+      <div class="product-grid">
+
+        <!-- GALLERY -->
+        <div>
+          <div class="gallery-main">
+            <img id="galleryMain" src="tracker-assets/1.png" alt="Muslim Maxxing System dashboard">
+          </div>
+          <div class="gallery-thumbs">
+            <button class="active" data-src="tracker-assets/1.png" aria-label="View image 1"><img src="tracker-assets/1.png" alt="Dashboard view"></button>
+            <button data-src="tracker-assets/2.png" aria-label="View image 2"><img src="tracker-assets/2.png" alt="Habit tracker view"></button>
+            <button data-src="tracker-assets/3.png" aria-label="View image 3"><img src="tracker-assets/3.png" alt="Progress charts view"></button>
+            <button data-src="tracker-assets/4.png" aria-label="View image 4"><img src="tracker-assets/4.png" alt="Task tracker view"></button>
+          </div>
+        </div>
+
+        <!-- BUY BOX -->
+        <div class="buy-box">
+          <div class="reviews-inline">
+            <span class="stars">★★★★★</span>
+            <span class="reviews-count">(12 Reviews)</span>
+          </div>
+
+          <h1 class="product-title">Muslim Maxxing System <span style="color:var(--gray-500);font-weight:700;font-size:0.6em;">(Updated March 2026)</span></h1>
+
+          <ul class="value-bullets">
+            <li>🕌 Wake up motivated, know what to do, track your Deen, and actually see yourself improve</li>
+            <li>📊 Automatic scores, progress charts, and monthly dashboards</li>
+            <li>⚡ Download in 60 seconds. Full refund if it's not for you.</li>
+            <li>💪 Works in Google Sheets and Excel on any device</li>
+          </ul>
+
+          <div class="variant-label">Choose your system</div>
+          <div class="variants" id="variants">
+            <button class="variant active" data-variant="habit">Habit Tracker</button>
+            <button class="variant" data-variant="task">Task Tracker</button>
+            <button class="variant" data-variant="bundle">Task &amp; Habit Bundle<span class="tag">Best value</span></button>
+          </div>
+
+          <div class="price-row">
+            <span class="price-now" id="priceNow">$6.99</span>
+            <span class="price-was" id="priceWas">$27.99</span>
+            <span class="save-badge" id="saveBadge">Save 75%</span>
+          </div>
+
+          <a href="#" class="btn-buy" id="buyBtn">Add to Cart</a>
+          <div class="buy-sub">🔒 Secure checkout · Instant download · No subscription</div>
+
+          <div class="trust">
+            <span>🔒 Secure Checkout</span>
+            <span>⚡ Instant Delivery</span>
+            <span>✅ 21-Day Money-Back Guarantee</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE / WHY -->
+  <section class="value-section">
+    <div class="container">
+      <div class="section-label fade-in">The Muslim System That Helps You Grow in Your Deen</div>
+      <div class="section-title fade-in">Build consistency. Build discipline.<br>Build a life that pleases Allah.</div>
+      <div class="section-sub fade-in">Not motivation posters — actual tracking and accountability infrastructure, built around one Prophetic principle.</div>
+      <div class="video-feature fade-in" style="margin-bottom:3rem;">
+        <video src="tracker-assets/video-pov.mp4" poster="tracker-assets/video-pov.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
+        <div class="vf-cap">POV: you turned your deen into a system</div>
+      </div>
+      <div class="value-grid">
+        <div class="value-card fade-in">
+          <div class="ico">🔁</div>
+          <h3>See your streak grow every day</h3>
+          <p>So quitting feels harder than continuing. Visual streaks make small, consistent action impossible to ignore.</p>
+          <span class="hadith">"The most beloved deeds to Allah are those done consistently, even if they are small." — Bukhari</span>
+        </div>
+        <div class="value-card fade-in">
+          <div class="ico">📊</div>
+          <h3>Turn your goals into a visible scoreboard</h3>
+          <p>Progress bars and charts activate the brain's reward system. When you can see your Quran streak at 21 days, your mind can't convince you to skip.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="ico">🧠</div>
+          <h3>Reduce overwhelm instantly</h3>
+          <p>Clear priorities each day eliminate decision fatigue. Know exactly what worship and tasks you need to do — before Fajr even hits.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="ico">⏳</div>
+          <h3>Make procrastination harder</h3>
+          <p>When you see your progress (or lack of it), your soul naturally pushes you to stay on track. Accountability without needing anyone else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="section-label fade-in">Trusted by Muslims building consistency worldwide</div>
+      <div class="section-title fade-in">Real growth, every single day.</div>
+      <div class="testi-grid" style="margin-top:2.5rem;">
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p>This tracker finally made my worship feel structured. I went from missing Sunnah prayers to a 30 day streak. The streaks make it impossible to quit.</p>
+          <span class="name">— Ahmad</span>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p>It keeps me locked in with my Quran goals and gym routine. My weekly progress has never looked better.</p>
+          <span class="name">— Yusuf</span>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p>Been using it consistently since Ramadan and it's been a game changer. The dashboard keeps me honest with myself.</p>
+          <span class="name">— Mariam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE BADGES -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-title fade-in" style="margin-bottom:2.5rem;">Level Up Your Deen</div>
+      <div class="video-row fade-in">
+        <div class="video-card"><video src="tracker-assets/video-2.mp4" poster="tracker-assets/video-2.jpg" muted loop playsinline controls preload="metadata"></video></div>
+        <div class="video-card"><video src="tracker-assets/video-pov.mp4" poster="tracker-assets/video-pov.jpg" muted loop playsinline controls preload="metadata"></video></div>
+        <!-- video-3: shirtless workout clip ("I literally turned my dunya into a game"). Delete this whole .video-card line to remove it. -->
+        <div class="video-card"><video src="tracker-assets/video-3.mp4" poster="tracker-assets/video-3.jpg" muted loop playsinline controls preload="metadata"></video></div>
+      </div>
+      <div class="badges">
+        <div class="badge-card fade-in"><div class="ico">🕐</div><h3>Simple 2-minute daily check-in</h3></div>
+        <div class="badge-card fade-in"><div class="ico">🧠</div><h3>Built on proven habit science</h3></div>
+        <div class="badge-card fade-in"><div class="ico">✅</div><h3>21-Day Money-Back Guarantee</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT VISUAL -->
+  <section class="value-section">
+    <div class="container">
+      <div class="split">
+        <div class="split-img-wrap fade-in">
+          <img src="tracker-assets/3.png" alt="Muslim Maxxing progress dashboard">
+        </div>
+        <div class="fade-in">
+          <h2>Build consistency, build momentum.</h2>
+          <p>If you're tired of starting strong after Ramadan and losing steam… if you're tired of making dua for discipline but never building a system… you're not alone.</p>
+          <p>You already have the intention. You already make dua for it. You just need a structure to follow through.</p>
+          <p class="hadith">"The most beloved deeds to Allah are those done consistently, even if they are small." — Bukhari</p>
+          <p style="margin-top:1rem;">This tracker makes that simple. Check a box, see your progress, keep going.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPED BY & FOR MUSLIMS -->
+  <section>
+    <div class="container">
+      <div class="section-label fade-in">Developed by &amp; for Muslims</div>
+      <div class="section-title fade-in" style="margin-bottom:2.5rem;">A tool built for your Deen.</div>
+      <div class="dev-grid">
+        <div class="dev-card fade-in"><div class="ico">✓</div><h3>Built for Consistency</h3><p>Discipline gets easier when the system does the heavy lifting. Stay locked in, day after day.</p></div>
+        <div class="dev-card fade-in"><div class="ico">⚡</div><h3>Execute with Purpose</h3><p>A clear daily layout so you stop planning and start doing.</p></div>
+        <div class="dev-card fade-in"><div class="ico">📊</div><h3>Progress You Can See</h3><p>Visual feedback that keeps you aligned with your goals, in this life and the next.</p></div>
+        <div class="dev-card fade-in"><div class="ico">🔒</div><h3>Lifetime Access</h3><p>Pay once, use it forever. Your long-term growth deserves a long-term tool.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="value-section">
+    <div class="container">
+      <div class="section-label fade-in">Questions</div>
+      <div class="section-title fade-in" style="margin-bottom:2.5rem;">Nothing to lose. Everything to gain.</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">I have tried habit trackers before and always quit. How is this different?</button>
+          <div class="faq-a"><p>Most trackers are either too complicated or too basic — and none of them are built for Muslims. This system is designed around one principle: if you can see your progress, you are less likely to break the chain. The Prophet ﷺ said the most beloved deeds to Allah are the most consistent ones. The visual streaks, automatic scoring, and daily layout take about 2 minutes to complete. Simple enough that you'll actually use it, satisfying enough that you'll want to keep going.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I not just build this myself in Google Sheets?</button>
+          <div class="faq-a"><p>Technically, yes. But this system has 50+ hours of formula work, conditional formatting, automatic charts, and visual dashboards already built in. Recreating it from scratch would take a long time, depending on your skill level. For less than the price of a meal, you skip all of that and start tracking today.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">I am not great with spreadsheets. Will I be able to use this?</button>
+          <div class="faq-a"><p>Absolutely. You do not need any spreadsheet skills. Open it, type your habits in the list, and check them off each day. Everything else (scores, streaks, charts) updates automatically.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Does this work on my phone?</button>
+          <div class="faq-a"><p>Yes. It works on any device with Google Sheets or Microsoft Excel, including your phone, tablet, and laptop. Most users check off their habits on their phone after Fajr and review their dashboard on desktop.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is this a one-time purchase or a subscription?</button>
+          <div class="faq-a"><p>One payment. No subscriptions. No upsells required. You get lifetime access to the full system, including any future updates.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is this only for religious habits?</button>
+          <div class="faq-a"><p>No. The tracker comes pre-loaded with Islamic habits, but you can customize every row. Add gym, reading, journaling, coding — whatever you're building. Most users track a mix of specific acts of worship (prayer, Qur'an…) and Dunya-related habits (work, fitness…).</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is included in this?</button>
+          <div class="faq-a"><p>You receive a complete Google Sheets and Excel habit and task tracking system tailored for Muslims, including an explainer video guide. Track your daily worship, weekly tasks, focus goals, and monthly progress — all in one dashboard. Built for clarity, consistency, and real growth.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What's the difference between the Habit Tracker, Task Tracker, and Bundle?</button>
+          <div class="faq-a"><p>The <strong>Habit Tracker</strong> ($6.99) is for daily habits — things you do every day like prayer, Quran, exercise. It tracks streaks, daily scores, and monthly progress. The <strong>Task Tracker</strong> ($6.99) is a weekly planner — daily to-do lists, focus goals, and weekly reviews. The <strong>Bundle</strong> ($9.99) gives you both systems together at a discount.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How do I access it?</button>
+          <div class="faq-a"><p>Once your payment is confirmed, you'll get an email with your purchase and the access link. The Google Sheets file will automatically copy to your Google Drive — all you need is a free Google (Gmail) account. There is also a Microsoft Excel version included in your downloads.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What if I do not like it?</button>
+          <div class="faq-a"><p>You have 21 days to try it. If it is not for you, email us and you get a full refund. No problem, no hassle.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PROMISE -->
+  <section class="promise-section">
+    <div class="container">
+      <div class="section-label fade-in">Our Promise</div>
+      <div class="section-title fade-in" style="margin-bottom:0.6rem;">A simple system + daily action = real growth.</div>
+      <div class="section-sub fade-in">Based on the Prophetic principle of consistent small deeds.</div>
+      <div class="promise-grid">
+        <div class="promise-item fade-in"><div class="num">100%</div><p>customizable to your worship, goals, and routine</p></div>
+        <div class="promise-item fade-in"><div class="num">100%</div><p>money back if you don't love it</p></div>
+        <div class="promise-item fade-in"><div class="num">100%</div><p>lifetime access. No subscriptions.</p></div>
+      </div>
+      <div class="promise-line fade-in">Consistency &amp; growth are not luck. It's a system.</div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="section-title fade-in">Your Deen deserves a system.<br>Not just good intentions.</div>
+      <div class="section-sub fade-in" style="margin-bottom:0;">Download in 60 seconds. Track tonight. Full refund if it's not for you.</div>
+      <a href="#" class="btn-buy fade-in" id="buyBtnBottom">Get the System — $6.99</a>
+    </div>
+  </section>
+
+  <!-- FOOTER (matches muslimmaxxing.com) -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">&copy; 2026 Muslim Maxxing. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Refund Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="footer-right">Bismillah.</div>
+    </div>
+  </footer>
+
+  <!-- STICKY ADD-TO-CART BAR (appears after scrolling past the buy box) -->
+  <div class="sticky-buy" id="stickyBuy">
+    <div class="sb-info">
+      <span class="sb-name" id="sbName">Muslim Maxxing System · Habit Tracker</span>
+      <span class="sb-price"><span id="sbPrice">$6.99</span><s id="sbWas">$27.99</s></span>
+    </div>
+    <a href="#" class="btn-buy" id="sbBtn">Add to Cart</a>
+  </div>
+
+  <script>
+    /* =====================================================================
+       CHECKOUT LINKS — EDIT HERE TO LEAVE SHOPIFY
+       ---------------------------------------------------------------------
+       Paste your new checkout URL for each variant below (Gumroad,
+       Lemon Squeezy, or a Stripe Payment Link — all cheaper than Shopify).
+       Until you do, the buttons fall back to your existing Shopify checkout
+       so nothing breaks during the switchover. Once these 3 links point to
+       your new checkout, you can safely cancel Shopify.
+       ===================================================================== */
+    const CHECKOUT = {
+      habit:  "https://muslimmaxxingtracker.com/products/muslim-maxxing-habit-tracker-task-tracker",
+      task:   "https://muslimmaxxingtracker.com/products/muslim-maxxing-habit-tracker-task-tracker",
+      bundle: "https://muslimmaxxingtracker.com/products/muslim-maxxing-habit-tracker-task-tracker"
+    };
+
+    const VARIANTS = {
+      habit:  { name: "Habit Tracker",      now: "$6.99", was: "$27.99", save: "Save 75%" },
+      task:   { name: "Task Tracker",       now: "$6.99", was: "$27.99", save: "Save 75%" },
+      bundle: { name: "Task & Habit Bundle", now: "$9.99", was: "$39.99", save: "Save 75%" }
+    };
+
+    let selected = "habit";
+
+    const priceNow = document.getElementById("priceNow");
+    const priceWas = document.getElementById("priceWas");
+    const saveBadge = document.getElementById("saveBadge");
+    const buyBtn = document.getElementById("buyBtn");
+    const buyBtnBottom = document.getElementById("buyBtnBottom");
+    const sbName = document.getElementById("sbName");
+    const sbPrice = document.getElementById("sbPrice");
+    const sbWas = document.getElementById("sbWas");
+
+    function refresh() {
+      const v = VARIANTS[selected];
+      priceNow.textContent = v.now;
+      priceWas.textContent = v.was;
+      saveBadge.textContent = v.save;
+      buyBtnBottom.textContent = "Get the System — " + v.now;
+      sbName.textContent = "Muslim Maxxing System · " + v.name;
+      sbPrice.textContent = v.now;
+      sbWas.textContent = v.was;
+    }
+
+    document.querySelectorAll(".variant").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".variant").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selected = btn.dataset.variant;
+        refresh();
+      });
+    });
+
+    function goToCheckout(e) {
+      e.preventDefault();
+      const url = CHECKOUT[selected];
+      if (url && url !== "#") window.location.href = url;
+    }
+    buyBtn.addEventListener("click", goToCheckout);
+    buyBtnBottom.addEventListener("click", goToCheckout);
+    document.getElementById("sbBtn").addEventListener("click", goToCheckout);
+
+    // STICKY BUY BAR — show once the main buy box scrolls out of view
+    const stickyBuy = document.getElementById("stickyBuy");
+    const buyBoxEl = document.querySelector(".buy-box");
+    const stickyObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => stickyBuy.classList.toggle("show", !entry.isIntersecting));
+    }, { threshold: 0 });
+    stickyObserver.observe(buyBoxEl);
+
+    // GALLERY
+    const galleryMain = document.getElementById("galleryMain");
+    document.querySelectorAll(".gallery-thumbs button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".gallery-thumbs button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        galleryMain.src = btn.dataset.src;
+      });
+    });
+
+    // FAQ ACCORDION
+    document.querySelectorAll(".faq-q").forEach(q => {
+      q.addEventListener("click", () => {
+        const item = q.parentElement;
+        const ans = q.nextElementSibling;
+        const isOpen = item.classList.contains("open");
+        if (isOpen) {
+          item.classList.remove("open");
+          ans.style.maxHeight = null;
+        } else {
+          item.classList.add("open");
+          ans.style.maxHeight = ans.scrollHeight + "px";
+        }
+      });
+    });
+
+    // MOBILE NAV
+    const toggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+    toggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+    navLinks.querySelectorAll("a").forEach(link =>
+      link.addEventListener("click", () => navLinks.classList.remove("active")));
+
+    // FADE-IN ON SCROLL
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+    refresh();
+  </script>
+
+</body>
+</html>
