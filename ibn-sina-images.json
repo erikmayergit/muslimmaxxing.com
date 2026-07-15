@@ -1,0 +1,30 @@
+{
+  "defaults": { "aspect_ratio": "16:9" },
+  "jobs": [
+    {
+      "id": "02-two-kinds",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, split composition, left side shows a delicate geometric object suspended by dozens of thin white threads pulling in every direction fragile dependent precarious, right side is absolute pure black emptiness void nothing visible, a sharp vertical divide between the two halves, abstract philosophical art, no text, no faces, no symbols, high contrast, dark background"
+    },
+    {
+      "id": "04-the-pile",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, massive structure seen from far away made of thousands of white geometric fragments atoms stars structures all leaning on each other interconnected web of dependence, no foundation underneath, the whole thing floating unsupported over pure black void, every piece depending on the piece next to it, abstract philosophical art, no text, no faces, no symbols, high contrast, dark background"
+    },
+    {
+      "id": "05-fork",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a contained white geometric structure representing a totality, two sharp white arrows emerging from it, one arrow curves back inward into the structure, one arrow points outward into absolute black void, a logical crossroads a fork, abstract philosophical diagram, no text, no faces, no symbols, high contrast, dark background"
+    },
+    {
+      "id": "07-boundary",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a vast cluster of white geometric fragments and structures seen from very far away, clearly bounded and contained with a visible edge, beyond the edge absolute pure black nothing visible, the boundary between what can be seen and what cannot, the contingent world has limits, abstract philosophical art, no text, no faces, no symbols, high contrast, dark background"
+    },
+    {
+      "id": "08-threads-unseen",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, hundreds of thin white threads and lines rising upward from a complex structure below, all converging as they rise, the threads leave the top of the frame and disappear, you cannot see where they go, the dependence is visible but the source is not, abstract philosophical art, no text, no faces, no symbols, high contrast, dark background"
+    }
+  ]
+}

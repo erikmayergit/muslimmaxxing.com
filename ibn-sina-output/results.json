@@ -1,0 +1,47 @@
+{
+  "jobs": [
+    {
+      "id": "05-fork",
+      "model": "recraft-v4",
+      "status": "completed",
+      "url": "https://cdn-editing-temp.picsart.com/editing-temp/203fd3b2-0a2d-4134-93e9-9c236a51f3f2.webp",
+      "durationMs": 13659,
+      "localPath": "ibn-sina-output/05-fork.webp"
+    },
+    {
+      "id": "04-the-pile",
+      "model": "recraft-v4",
+      "status": "completed",
+      "url": "https://cdn-editing-temp.picsart.com/editing-temp/ec80c560-e47e-4bf1-89ba-c837031ace0f.webp",
+      "durationMs": 13673,
+      "localPath": "ibn-sina-output/04-the-pile.webp"
+    },
+    {
+      "id": "08-threads-unseen",
+      "model": "recraft-v4",
+      "status": "completed",
+      "url": "https://cdn-editing-temp.picsart.com/editing-temp/c1f788c4-e8e2-4869-9e67-68490e88091d.webp",
+      "durationMs": 13683,
+      "localPath": "ibn-sina-output/08-threads-unseen.webp"
+    },
+    {
+      "id": "02-two-kinds",
+      "model": "recraft-v4",
+      "status": "completed",
+      "url": "https://cdn-editing-temp.picsart.com/editing-temp/ec51752a-7f24-4db8-b36f-9bae879cc1c3.webp",
+      "durationMs": 13775,
+      "localPath": "ibn-sina-output/02-two-kinds.webp"
+    },
+    {
+      "id": "07-boundary",
+      "model": "recraft-v4",
+      "status": "completed",
+      "url": "https://cdn-editing-temp.picsart.com/editing-temp/1502bbf0-a672-4eb9-9bab-09d940279170.webp",
+      "durationMs": 16926,
+      "localPath": "ibn-sina-output/07-boundary.webp"
+    }
+  ],
+  "startedAt": "2026-05-07T04:34:37.296Z",
+  "completedAt": "2026-05-07T04:34:54.224Z",
+  "manifestPath": "/Users/erikmayer/muslim-maxxing/ibn-sina-images.json"
+}

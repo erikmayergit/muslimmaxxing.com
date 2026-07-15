@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <rect width="1200" height="600" fill="#000"/>
+
+  <!-- Single dot -->
+  <circle cx="600" cy="280" r="12" fill="#fff"/>
+
+  <!-- Label -->
+  <text x="600" y="340" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="600">Something exists.</text>
+
+  <!-- Subtle glow -->
+  <circle cx="600" cy="280" r="12" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1">
+    <animate attributeName="r" values="12;30;12" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+</svg>

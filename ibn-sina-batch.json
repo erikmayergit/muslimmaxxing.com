@@ -1,0 +1,45 @@
+{
+  "defaults": { "aspect_ratio": "16:9" },
+  "jobs": [
+    {
+      "id": "01-existence",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a single small luminous white point of light emerging from absolute darkness, infinite black void surrounding it, the birth of existence, philosophical abstract art, no text, no faces, high contrast, cinematic"
+    },
+    {
+      "id": "02-fork",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a single white line splitting into two diverging paths, one path solid and eternal, one path fragile and branching into many threads, fork in reality, abstract philosophical diagram, no text, no faces, high contrast, dark background"
+    },
+    {
+      "id": "03-chain",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, an infinite chain of white geometric shapes each suspended from the one above, each dependent on the next, causation chain hanging in void, abstract philosophical art, no text, no faces, high contrast, dark background"
+    },
+    {
+      "id": "04-totality",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a massive translucent sphere made of thousands of interconnected white fragments and lines, floating in black void, representing the totality of all contingent things, abstract cosmic geometry, no text, no faces, high contrast"
+    },
+    {
+      "id": "05-collapse",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a massive sphere of white fragments beginning to collapse inward, cracking, unable to sustain itself, pieces falling toward center, self-insufficiency, abstract philosophical art, no text, no faces, high contrast, dark background"
+    },
+    {
+      "id": "06-beyond",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a broken sphere of fragments on one side, and beyond it a vast singular beam of white light emanating from outside the sphere, external cause, something beyond the totality, abstract philosophical art, no text, no faces, high contrast, dark background"
+    },
+    {
+      "id": "07-necessary",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, a single overwhelming source of pure white radiance above and beyond a field of scattered small fragments below, the necessary existent towering over contingent things, abstract philosophical art, no text, no faces, ultra high contrast, dark background"
+    },
+    {
+      "id": "08-complete",
+      "model": "recraft-v4",
+      "prompt": "minimalist black and white, pure radiant white light filling the frame from a single infinite point, perfect circle of light, one eternal immaterial complete being, absolute simplicity and unity, abstract philosophical art, no text, no faces, luminous, transcendent"
+    }
+  ]
+}

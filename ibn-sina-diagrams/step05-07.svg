@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <rect width="1200" height="600" fill="#000"/>
+
+  <!-- The pile — big circle -->
+  <ellipse cx="600" cy="300" rx="340" ry="220" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Label above -->
+  <text x="600" y="55" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="3">THE TOTALITY OF ALL CONTINGENT THINGS</text>
+
+  <!-- Items inside the pile — scattered -->
+  <text x="360" y="220" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">atoms</text>
+  <text x="500" y="190" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">stars</text>
+  <text x="700" y="200" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">laws of physics</text>
+  <text x="450" y="260" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">you</text>
+  <text x="750" y="270" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">molecules</text>
+  <text x="380" y="320" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">planets</text>
+  <text x="600" y="300" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">cells</text>
+  <text x="820" y="340" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">energy</text>
+  <text x="500" y="370" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">gravity</text>
+  <text x="700" y="390" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">quantum fields</text>
+  <text x="600" y="440" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">time</text>
+
+  <!-- Dependency lines between items -->
+  <line x1="460" y1="255" x2="505" y2="188" stroke="#333" stroke-width="0.7"/>
+  <line x1="505" y1="192" x2="690" y2="198" stroke="#333" stroke-width="0.7"/>
+  <line x1="600" y1="295" x2="745" y2="268" stroke="#333" stroke-width="0.7"/>
+  <line x1="385" y1="315" x2="455" y2="258" stroke="#333" stroke-width="0.7"/>
+  <line x1="505" y1="365" x2="600" y2="296" stroke="#333" stroke-width="0.7"/>
+  <line x1="695" y1="385" x2="815" y2="338" stroke="#333" stroke-width="0.7"/>
+  <line x1="600" y1="435" x2="500" y2="368" stroke="#333" stroke-width="0.7"/>
+
+  <!-- No foundation -->
+  <text x="600" y="560" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700">A pile of leaning things has nothing to lean on.</text>
+  <text x="600" y="585" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14">The whole pile is contingent. It needs a cause.</text>
+</svg>

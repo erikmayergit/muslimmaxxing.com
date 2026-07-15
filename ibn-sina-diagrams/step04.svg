@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <rect width="1200" height="600" fill="#000"/>
+
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="3">SIMULTANEOUS CAUSATION — RIGHT NOW</text>
+
+  <!-- Vertical chain of dependence -->
+  <!-- Phone -->
+  <rect x="490" y="90" width="220" height="44" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <text x="600" y="118" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Phone in the air</text>
+
+  <!-- Arrow -->
+  <line x1="600" y1="134" x2="600" y2="155" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="680" y="150" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">held up by</text>
+
+  <!-- Hand -->
+  <rect x="490" y="158" width="220" height="44" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <text x="600" y="186" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Your hand</text>
+
+  <line x1="600" y1="202" x2="600" y2="223" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="680" y="218" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">held up by</text>
+
+  <!-- Muscles -->
+  <rect x="490" y="226" width="220" height="44" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <text x="600" y="254" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Muscles &amp; bones</text>
+
+  <line x1="600" y1="270" x2="600" y2="291" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="680" y="286" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">held up by</text>
+
+  <!-- Cells -->
+  <rect x="490" y="294" width="220" height="44" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <text x="600" y="322" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Cells</text>
+
+  <line x1="600" y1="338" x2="600" y2="359" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="680" y="354" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">held up by</text>
+
+  <!-- Molecules -->
+  <rect x="490" y="362" width="220" height="44" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <text x="600" y="390" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Molecules &amp; atoms</text>
+
+  <line x1="600" y1="406" x2="600" y2="427" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="680" y="422" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">held up by</text>
+
+  <!-- Laws -->
+  <rect x="490" y="430" width="220" height="44" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <text x="600" y="458" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Physical laws</text>
+
+  <line x1="600" y1="474" x2="600" y2="495" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Question -->
+  <text x="600" y="520" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700">held up by ... ?</text>
+
+  <!-- Side note -->
+  <text x="160" y="300" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-style="italic">All of this</text>
+  <text x="160" y="320" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-style="italic">is happening</text>
+  <text x="160" y="340" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="700">right now.</text>
+
+  <!-- Right note -->
+  <text x="1040" y="300" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-style="italic">Drop the hand —</text>
+  <text x="1040" y="320" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-style="italic">phone drops</text>
+  <text x="1040" y="340" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="700">in the same instant.</text>
+</svg>

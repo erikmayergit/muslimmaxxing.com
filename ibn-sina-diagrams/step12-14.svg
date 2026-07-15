@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <rect width="1200" height="600" fill="#000"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="3">THE NECESSARY EXISTENT</text>
+
+  <!-- The pile circle — smaller, off to the right-bottom -->
+  <ellipse cx="650" cy="380" rx="280" ry="150" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="650" y="385" text-anchor="middle" fill="#444" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">all contingent things</text>
+
+  <!-- Items inside faded -->
+  <text x="520" y="350" text-anchor="middle" fill="#333" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">atoms</text>
+  <text x="600" y="340" text-anchor="middle" fill="#333" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">stars</text>
+  <text x="750" y="350" text-anchor="middle" fill="#333" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">laws</text>
+  <text x="580" y="420" text-anchor="middle" fill="#333" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">you</text>
+  <text x="720" y="430" text-anchor="middle" fill="#333" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">planets</text>
+
+  <!-- Threads going up from the pile, converging, leaving frame -->
+  <line x1="520" y1="340" x2="320" y2="140" stroke="#333" stroke-width="0.8"/>
+  <line x1="600" y1="330" x2="320" y2="140" stroke="#333" stroke-width="0.8"/>
+  <line x1="750" y1="340" x2="320" y2="140" stroke="#333" stroke-width="0.8"/>
+  <line x1="580" y1="410" x2="320" y2="140" stroke="#333" stroke-width="0.8"/>
+  <line x1="720" y1="420" x2="320" y2="140" stroke="#333" stroke-width="0.8"/>
+  <line x1="650" y1="375" x2="320" y2="140" stroke="#333" stroke-width="0.8"/>
+
+  <!-- The outside — convergence point area (no depiction, just the logic) -->
+  <text x="320" y="120" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="700">Outside the pile.</text>
+  <text x="320" y="145" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">Not contingent.</text>
+  <text x="320" y="168" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">Therefore: necessary.</text>
+
+  <!-- Divider -->
+  <line x1="100" y1="210" x2="540" y2="210" stroke="#333" stroke-width="0.5"/>
+
+  <!-- The chain summary -->
+  <text x="320" y="250" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">Something exists (1) → It's contingent (2)</text>
+  <text x="320" y="272" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">→ Needs a cause now (4) → The whole pile does too (5-7)</text>
+  <text x="320" y="294" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">→ Cause can't be inside (8-11) → Must be outside (12)</text>
+  <text x="320" y="316" text-anchor="middle" fill="#555" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12">→ Outside = not contingent = necessary (13)</text>
+
+  <!-- Conclusion -->
+  <text x="600" y="560" text-anchor="middle" fill="#fff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="700">There is a Necessary Existent.</text>
+  <text x="600" y="585" text-anchor="middle" fill="#888" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-style="italic">wājib al-wujūd</text>
+</svg>
